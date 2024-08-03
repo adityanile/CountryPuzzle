@@ -46,22 +46,24 @@ public class TouchManager : MonoBehaviour
                             globe.transform.Rotate(Vector3.up, speed);
                         }
                     }
-                    //else
-                    //{
-                    //    if (lp.y > fp.y)
-                    //    {
-                    //        globe.transform.Rotate(Vector3.right, -speed);
-                    //    }
-                    //    else
-                    //    {
-                    //        globe.transform.Rotate(Vector3.right, speed);
-                    //    }
-                    //}
+                    else
+                    {
+                        if (lp.y > fp.y)
+                        {
+                            globe.transform.Rotate(Vector3.right, -speed);
+                        }
+                        else
+                        {
+                            globe.transform.Rotate(Vector3.right, speed);
+                        }
+                    }
                 }
-               
+
             }
             else if (touch.phase == TouchPhase.Ended)
             {
+                globe.transform.localEulerAngles = new Vector3(globe.transform.localEulerAngles.x,
+                    globe.transform.localEulerAngles.y, 0);
             }
         }
     }
